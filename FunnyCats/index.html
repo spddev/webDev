@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Кванториум</title>
+    <meta charset="utf-8"/>
+   
+</head>
+<body>
+    <h1 class="main-title">Кванториум - Frontend</h1>
+    <!--<img class = "content">
+    
+    </img>-->
+    <button class="cat-button">Покажи мне котиков</button>
+    <article class="content">
+        
+    </article>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const content = document.querySelector('.content');
+            let response = await fetch('https://aws.random.cat/meow');
+        
+            let json = await response.json();
+            document.querySelector('.cat-button').addEventListener('click', async function() {         
+                content.innerHTML= '<img src="' + json.file + '" />';
+                
+                response = await fetch('https://aws.random.cat/meow');
+        
+                json = await response.json();                    
+                               
+            });
+        });
+    </script>
+</body>    
+</html>
